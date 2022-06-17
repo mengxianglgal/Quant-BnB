@@ -18,6 +18,6 @@ include("QuantBnB-3D.jl")
 
 * `QuantBnB-2D.jl` implements Quant-BnB for trees with depth 2.
 * `QuantBnB-3D.jl` implements Quant-BnB for trees with depth 3.
-* `Algorithms.jl` and  `gen_data.jl` and `lowerbound_middle.jl`  contains some auxiliary functions.
+* `Algorithms.jl`, `gen_data.jl` and `lowerbound_middle.jl`  contains some auxiliary functions.
 * `test.ipynb` contains examples of Quant-BnB on various tasks.
 * `dataset/` contains classification and regression datasets.
