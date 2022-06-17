@@ -14,4 +14,4 @@ include("QuantBnB-2D.jl")
 include("QuantBnB-3D.jl")
 ```
 
-See test.ipynb for examples of Quant-BnB on various tasks
+See test.ipynb for examples of Quant-BnB on various tasks.
