@@ -1300,7 +1300,13 @@ function screening_search_3D(X, y, s, s2, AALL, ub, best_tree, mid_method, mid_r
         end
         best_tree = Array{Any,1}(undef, 4)
         best_tree[1] = best_tree_label[1]
-        best_tree[2] = 0.5 * (x_ordered[split0] + x_ordered[split0+1])
+        if split0 == 0
+            best_tree[2] = -1e20
+        elseif split0 >= length(x_ordered)
+            best_tree[2] = 1e20
+        else 
+            best_tree[2] = 0.5*(x_ordered[split0] + x_ordered[split0+1])
+        end
         best_tree[3] = Array{Any,1}(undef, 4)
         best_tree[3][1], best_tree[3][2] = f1, split1
         best_tree[4] = Array{Any,1}(undef, 4)

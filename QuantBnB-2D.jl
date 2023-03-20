@@ -213,11 +213,17 @@ function screening_search_2D(X, y, s, AL, ub, best_tree, mid_method, mid_ratio, 
         order_f0 = X_sortperm[:,f0]
         xx = X[order_f0, f0]
         l1, b1, lm1, rm1 = one_pass_search_mr(X, y, order_f0[1:split0], f1, treetype)
-        l2, b2, lm2, rm2 = one_pass_search_mr(X, y, order_f0[split0+1 : n], f2, treetype)
+        l2, b2, lm2, rm2 = one_pass_search_mr(X, y, order_f0[split0+1:n], f2, treetype)
         ub = l1 + l2
         best_tree = Array{Any,1}(undef, 4)
         best_tree[1] = best_tree_label[1]
-        best_tree[2] = 0.5*(xx[split0] + xx[split0+1])
+        if split0 == 0
+            best_tree[2] = -1e20
+        elseif split0 >= length(xx)
+            best_tree[2] = 1e20
+        else 
+            best_tree[2] = 0.5*(xx[split0] + xx[split0+1])
+        end
         best_tree[3] = Array{Any,1}(undef, 4)
         best_tree[3][1], best_tree[3][2], best_tree[3][3], best_tree[3][4] = f1, b1, lm1, rm1
         best_tree[4] = Array{Any,1}(undef, 4)
